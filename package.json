@@ -1,0 +1,37 @@
+{
+  "name": "basex",
+  "version": "1.0.0",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "test": "turbo test",
+    "lint": "run-s prettier:l eslint:l",
+    "format": "run-s prettier:f eslint:f",
+    "eslint:l": "run-s eslint:l:backend eslint:l:frontend",
+    "eslint:l:backend": "eslint 'src/backend/src/**' --parser-options project:'./src/backend/tsconfig.json'",
+    "eslint:l:frontend": "eslint 'src/frontend/src/**' --parser-options project:'./src/frontend/tsconfig.json'",
+    "eslint:f": "run-s eslint:f:backend eslint:f:frontend",
+    "eslint:f:backend": "eslint --fix 'src/backend/src/**' --parser-options project:'./src/backend/tsconfig.json'",
+    "eslint:f:frontend": "eslint --fix 'src/frontend/src/**' --parser-options project:'./src/frontend/tsconfig.json'",
+    "prettier:l": "prettier --check --log-level silent src",
+    "prettier:f": "prettier --write --log-level silent src"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.18.1",
+    "@typescript-eslint/parser": "^6.18.1",
+    "eslint": "8.54.0",
+    "eslint-config-next": "14.0.3",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-standard-with-typescript": "^40.0.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-tailwindcss": "^3.13.1",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.2.2",
+    "turbo": "^1.11.3"
+  }
+}

@@ -1,0 +1,15 @@
+node_modules/
+.next/
+out/
+dist/
+.DS_Store
+*.pem
+yarn-error.log*
+.env*
+*.tsbuildinfo
+next-env.d.ts
+
+tmp/
+.husky/_
+.esbuild/
+.turbo/

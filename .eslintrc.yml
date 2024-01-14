@@ -1,0 +1,61 @@
+root: true
+env:
+  browser: true
+  es2022: true
+  node: true
+ignorePatterns:
+  - node_modules
+  - '*.js'
+  - '*.cjs'
+  - '*.mjs'
+  - '*.css'
+plugins:
+  - tailwindcss
+  - jsx-a11y
+extends:
+  - eslint:recommended
+  - next/core-web-vitals
+  - standard-with-typescript
+  - eslint-config-prettier
+  - plugin:tailwindcss/recommended
+  - plugin:jsx-a11y/recommended
+parser: '@typescript-eslint/parser'
+parserOptions:
+  project: './tsconfig.json'
+rules:
+  semi: off
+  no-unused-vars: off
+
+  '@typescript-eslint/array-type':
+    - error
+    - default: array
+      readonly: array
+  '@typescript-eslint/restrict-template-expressions':
+    - error
+    - allowNumber: true
+      allowBoolean: true
+      allowAny: true
+      allowNullish: false
+      allowRegExp: true
+  '@typescript-eslint/no-unnecessary-condition': error
+  '@typescript-eslint/consistent-type-imports': error
+  '@typescript-eslint/no-import-type-side-effects': error
+  '@typescript-eslint/no-unused-vars': off
+  '@typescript-eslint/explicit-function-return-type': off
+  '@typescript-eslint/consistent-type-definitions': off
+  '@typescript-eslint/no-misused-promises': off
+  '@typescript-eslint/no-non-null-assertion': off
+  '@typescript-eslint/no-invalid-void-type': off
+  '@typescript-eslint/prefer-ts-expect-error': off
+  '@typescript-eslint/ban-types': off
+  '@typescript-eslint/ban-ts-comment': off
+  '@typescript-eslint/triple-slash-reference': off
+
+  # front end
+  react/display-name: off
+  '@next/next/no-img-element': off
+  '@next/next/no-html-link-for-pages': off
+  tailwindcss/no-custom-classname:
+    - warn
+    - whitelist: []
+  tailwindcss/enforces-negative-arbitrary-values: off
