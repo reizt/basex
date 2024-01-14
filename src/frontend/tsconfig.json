@@ -1,18 +1,17 @@
 {
-  "include": ["src/**/*.ts", "src/**/*.tsx", "*.ts", ".next/types/**/*.ts"],
-  "exclude": ["node_modules", "tmp", ".next"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "*.ts", ".next/types/**/*.ts", "node_modules/@repo/**/*", "vitest.config.ts"],
+  "exclude": ["node_modules/**/*", "tmp", ".next"],
   "compilerOptions": {
     "target": "ES2022",
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "Bundler",
     "lib": ["dom", "dom.iterable", "esnext"],
     "types": ["vitest/globals"],
     "plugins": [{ "name": "next" }],
 
     "baseUrl": "./",
     "paths": {
-      "~/*": ["src/*"],
-      "*": ["node_modules/*"]
+      "~/*": ["src/*"]
     },
     "outDir": ".next",
     "noEmit": true,
@@ -24,13 +23,15 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    "resolvePackageJsonExports": false,
 
     // syntax
     "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": false,
+    "skipLibCheck": true,
     "strict": true,
     "verbatimModuleSyntax": true,
     "noImplicitReturns": true,
+    "noImplicitAny": true,
     "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true
   }

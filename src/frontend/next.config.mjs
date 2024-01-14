@@ -13,4 +13,5 @@ export default withBundleAnalyzer({
   typescript: {
     ignoreBuildErrors: true,
   },
+  transpilePackages: ['@repo/def'],
 });

@@ -10,8 +10,17 @@ const opts = {
   bundle: true,
 };
 
-const dependencies = Object.keys(pkg.dependencies ?? {});
-const devDependencies = Object.keys(pkg.devDependencies ?? {});
+const excludeWorkspace = (obj) => {
+  const result = {};
+  for (const key in obj) {
+    if (obj[key].startsWith('workspace:')) continue;
+    result[key] = obj[key];
+  }
+  return result;
+};
+
+const dependencies = Object.keys(excludeWorkspace(pkg.dependencies ?? {}));
+const devDependencies = Object.keys(excludeWorkspace(pkg.devDependencies ?? {}));
 
 const mode = process.argv[2];
 if (mode === 'dev') {

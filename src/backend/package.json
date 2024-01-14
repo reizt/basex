@@ -6,22 +6,21 @@
   "scripts": {
     "build": "node --no-warnings esbuild.mjs prd",
     "start": "node .esbuild/prd.js",
-    "dev": "nodemon --exec 'run-s dev:build dev:start' --watch src --ext ts --delay 0.2 --quiet",
+    "dev": "nodemon --exec 'run-s dev:build dev:start' --watch '**/*' --ext ts --delay 0.2 --quiet",
     "dev:build": "node --no-warnings esbuild.mjs dev",
     "dev:start": "node --enable-source-maps .esbuild/dev.js",
     "lint": "tsc --noEmit",
-    "lint:watch": "tsc --noEmit",
+    "lint:watch": "tsc --noEmit --watch",
     "test": "vitest run",
-    "test:watch": "vitest watch",
-    "test:cov": "vitest run --coverage && open coverage/index.html"
+    "test:watch": "vitest watch"
   },
   "devDependencies": {
-    "@types/node": "^20.8.10",
-    "@vitest/coverage-v8": "^0.34.6",
+    "@repo/def": "workspace:*",
+    "@types/node": "^20.11.0",
     "esbuild": "^0.19.11",
-    "nodemon": "^3.0.1",
+    "nodemon": "^3.0.2",
     "npm-run-all": "^4.1.5",
-    "typescript": "^5.2.2",
+    "typescript": "^5.3.3",
     "vitest": "^0.34.6"
   }
 }
